@@ -15,7 +15,9 @@ workflows:
   version: 2
   deploy_to_server:
     jobs:
-      - deploy
+      - deploy:
           filters:
             branches:
-              only: test
+              only:
+                - test
+                - master
