@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <title>Szabadság kivétel</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="send.js"></script>
+</head>
+<body>
+ 
+<h1>Szabadság kivétele</h1>
+<h5>Válasszd ki melyik napra szeretnél szabadságot kérvényezni!</h5>
+ 
+ 
+        Utazás: <input type="checkbox" id="utazas" value="utazas"/>
+        Időpont: <input type="date" name="date" id="date"><br/><br>
+        <select name='tipus' id="tipus">
+            <option value="1"> Fizetett szabadság </option>
+            <option value="3"> Tanulányi szabadság </option>
+            <option value="9"> Egyéni utazás - egy útra </option>
+            <option value="10"> Egyéni utazás - oda-vissza </option>
+            <option value="11"> Közösségi közlekedés utazás </option>
+        </select>
+		<input id="kivesz" type='button' value='Kivesz' onclick="katt()"/>
+
+        <textarea id="valasz"></textarea>
+</body>
+</html>
