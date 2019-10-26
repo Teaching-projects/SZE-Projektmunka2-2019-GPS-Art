@@ -10,7 +10,7 @@ jobs:
           fingerprints:
             - "25:85:79:63:4a:30:05:70:5f:56:5c:b6:2f:93:45:44"
       - run: 'echo $REMOTE_HOSTKEY >> ~/.ssh/known_hosts'
-      - run: 'rsync -avce ssh . projektmunka@adampapp.ddns.net:/var/www/projektmunka'
+      - run: 'rsync -avOce ssh . projektmunka@adampapp.ddns.net:/var/www/projektmunka'
 
 workflows:
   version: 2
