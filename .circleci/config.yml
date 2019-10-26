@@ -18,6 +18,4 @@ workflows:
       - deploy
           filters:
             branches:
-              only:
-                - master
-                - test
+              only: test
