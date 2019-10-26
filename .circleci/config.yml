@@ -6,6 +6,10 @@ jobs:
     steps:
       - checkout
       - run: 'echo It Works'
+      - add_ssh_keys:
+          fingerprints:
+            - "25:85:79:63:4a:30:05:70:5f:56:5c:b6:2f:93:45:44"
+      - run: 'echo $REMOTE_HOSTKEY >> ~/.ssh/known_hosts'
 
 workflows:
   version: 2
