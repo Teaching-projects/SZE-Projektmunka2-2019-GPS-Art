@@ -32,7 +32,8 @@ Route::post('/delete', ['as' => 'deleteuser', 'uses' => 'UserlistController@dele
 Route::get('/delete/verify', ['as' => 'deleteverify', 'uses' => 'UserlistController@verify']);
 Route::post('/modify/mod', ['as' => 'modifyuser', 'uses' => 'UserlistController@modify']);
 Route::get('/modify/show', ['as' => 'modifyusershow', 'uses' => 'UserlistController@show']);
-Route::post('/drawfigure', 'DatabaseController@szabitkivesz');
+Route::get('/drawfigure', 'UploaddrawingController@index');
+Route::post('/drawfigure', 'UploaddrawingController@upload');
 Route::get('/uploadtrack', 'UploadtrackController@index');
 Route::post('/uploadtrack', 'UploadtrackController@upload');
 Route::post('/synctrack', 'DatabaseController@szabitbiral');
