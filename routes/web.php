@@ -21,23 +21,21 @@
 // });
 
 Route::get('/', 'LoginController@index');
-Route::get('/my', 'LoginController@my');
-Route::post('/checklogin', 'LoginController@checklogin');
-Route::get('/successlogin', 'LoginController@successlogin');
-Route::get('/logout', 'LoginController@logout');
-Route::get('/reg', 'RegistrationController@index');
-Route::post('/reg/store', 'RegistrationController@store');
-Route::get('/userlist', 'UserlistController@list');
+Route::get('/my',['as' => 'my', 'uses' => 'LoginController@my'] );
+Route::post('/checklogin', ['as' => 'checklogin', 'uses' => 'LoginController@checklogin']);
+Route::get('/successlogin', ['as' => 'successlogin', 'uses' => 'LoginController@successlogin'] );
+Route::get('/logout',['as' => 'logout', 'uses' => 'LoginController@logout'] );
+Route::get('/reg',['as' => 'reg', 'uses' => 'RegistrationController@index'] );
+Route::post('/reg/store', ['as' => 'regstore', 'uses' => 'RegistrationController@store']);
+Route::get('/userlist', ['as' => 'userlist', 'uses' => 'UserlistController@list']);
 Route::post('/delete', ['as' => 'deleteuser', 'uses' => 'UserlistController@delete']);
 Route::get('/delete/verify', ['as' => 'deleteverify', 'uses' => 'UserlistController@verify']);
 Route::post('/modify/mod', ['as' => 'modifyuser', 'uses' => 'UserlistController@modify']);
 Route::get('/modify/show', ['as' => 'modifyusershow', 'uses' => 'UserlistController@show']);
-Route::get('/drawfigure', 'UploaddrawingController@index');
-Route::post('/drawfigure', 'UploaddrawingController@upload');
-Route::get('/uploadtrack', 'UploadtrackController@index');
-Route::post('/uploadtrack', 'UploadtrackController@upload');
-Route::post('/synctrack', 'DatabaseController@szabitbiral');
-Route::get('/figuretrack', 'DatabaseController@szabikatmegjelenit');
+Route::get('/drawfigure', ['as' => 'drawfigure', 'uses' => 'UploaddrawingController@index']);
+Route::post('/drawfigure', ['as' => 'drawfigure', 'uses' => 'UploaddrawingController@upload'] );
+Route::get('/uploadtrack', ['as' => 'uploadtrack', 'uses' => 'UploadtrackController@index']);
+Route::post('/uploadtrack', ['as' => 'uploadtrack', 'uses' => 'UploadtrackController@upload']);
 Route::get('/competitionlist', ['as' => 'lezaras', 'uses' => 'UserlistController@show']);
 Route::get('/drawinglist', ['as' => 'drawinglist', 'uses' => 'DrawinglistController@showUsersDrawings']);
 Route::get('/deletedrawing', ['as' => 'deletedrawing', 'uses' => 'DrawinglistController@deleteDrawing']);
@@ -49,6 +47,10 @@ Route::get('/deletetrack', ['as' => 'deletetrack', 'uses' => 'TracklistControlle
 Route::get('/viewtrack', ['as' => 'viewtrack', 'uses' => 'TracklistController@viewTrack']);
 Route::get('/renametrack', ['as' => 'renametrack', 'uses' => 'TracklistController@showRenameTrack']);
 Route::post('/renametrack', ['as' => 'renametrack', 'uses' => 'TracklistController@renameTrack']);
+
+Route::get('/synctrack', ['as' => 'synctrack', 'uses' => 'DatabaseController@szabitbiral'] );
+Route::get('/figuretrack', ['as' => 'figuretrack', 'uses' => 'DatabaseController@szabikatmegjelenit']);
+Route::get('/competitionlist', ['as' => 'competitionlist', 'uses' => 'DatabaseController@szabikatmegjelenit']);
 
 Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('view:clear');

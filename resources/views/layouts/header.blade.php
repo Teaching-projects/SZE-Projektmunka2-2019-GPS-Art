@@ -18,16 +18,16 @@
 </div>
        
 <div class="topnav " style="font-size:13px;">
-  <a href="{{ route('successlogin', ['user' => ['id' => Auth::user()->id]]) }}">Kezdőoldal</a>
-  <a href="{{ route('drawfigure', ['user' => ['id' => Auth::user()->id]]) }}">Futófigura rajzolása</a>
-  <a href="{{ route('uploadtrack', ['user' => ['id' => Auth::user()->id]]) }}">Track fájl feltöltése</a>
-  <a href="{{ route('synctrack', ['user' => ['id' => Auth::user()->id]]) }}">Track fájl szinkronizálása (Strava)</a>
+  <a href="{{ route('successlogin') }}">Kezdőoldal</a>
+  <a href="{{ route('drawfigure') }}">Futófigura rajzolása</a>
+  <a href="{{ route('uploadtrack') }}">Track fájl feltöltése</a>
+  <a href="{{ route('synctrack') }}">Track fájl szinkronizálása (Strava)</a>
 @if(isset(Auth::user()->email) && Auth::user()->superuser)
-  <a href="{{ route('drawinglist', ['user' => ['id' => Auth::user()->id]]) }}">Leadott futófigurák kezelése</a>
-  <a href="{{ route('competitionlist', ['user' => ['id' => Auth::user()->id]]) }}">Kiírt versenyek kezelése</a>
+  <a href="{{ route('drawinglist') }}">Leadott futófigurák kezelése</a>
+  <a href="{{ route('competitionlist') }}">Kiírt versenyek kezelése</a>
 @endif
 @if(isset(Auth::user()->email))
-   <a href="{{ route('my', ['user' => ['id' => Auth::user()->id]]) }}">Adataim</a>
+   <a href="{{ route('my') }}">Adataim</a>
    <a href="{{ route('tracklist', ['user' => ['id' => Auth::user()->id]]) }}">Trackjeim</a>
 @endif
 @if(isset(Auth::user()->email) && Auth::user()->superuser)
