@@ -11,4 +11,5 @@ def loadAllPics(folderName):
         cv2.imshow("shapes", img)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
+        #call differencebetweenpic function here
 
