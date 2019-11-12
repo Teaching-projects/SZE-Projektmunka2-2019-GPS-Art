@@ -27,4 +27,21 @@ class UploaddrawingController extends Controller
 					]);
 		return view('drawfigure');
 	}
+    function saveToServer(Request $request){
+		$date = date('Y.m.d-H:i:s');
+		$upload_dir = "resources/";
+		$bodyContent = $request->canvasimg;
+		$ownname=$request->name;
+		$data=$bodyContent;
+		$img = base64_decode(explode(',', $data)[1]);
+		$filename = $upload_dir . time() . $ownname . '.png';
+		file_put_contents($filename, $img);
+		/*DB::table('drawings')->insert([
+						'id' => Auth::user()->id,
+						'drawingname' => $request->post('name'),
+						'drawing_file_name' => $filename,
+						'drawing_created_at' => DB::raw('now()')
+					]);*/
+		return view('drawfigure');
+	}
 }
