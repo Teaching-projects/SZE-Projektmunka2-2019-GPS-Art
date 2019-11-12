@@ -29,6 +29,12 @@ def findShape(imgPath):
               shape="Rectangle"
         elif len(approx) == 5:
             shape="Pentagon"
+        elif len(approx) == 6:
+            shape="Hexagon"
+        elif len(approx) == 7:
+            shape="Optagon"
+        elif len(approx) == 8:
+            shape="Octagon"
         elif len(approx) == 10:
             shape="Star"
         else:
