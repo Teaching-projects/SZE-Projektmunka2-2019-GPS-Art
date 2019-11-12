@@ -37,12 +37,12 @@ class UploaddrawingController extends Controller
 		$img = base64_decode(explode(',', $data)[1]);
 		$filename = $upload_dir . time() . $ownname . '.png';
 		file_put_contents($filename, $img);
-		/*DB::table('drawings')->insert([
+		DB::table('drawings')->insert([
 						'id' => Auth::user()->id,
 						'drawingname' => $request->post('name'),
 						'drawing_file_name' => $filename,
 						'drawing_created_at' => DB::raw('now()')
-					]);*/
+					]);
 		return view('drawfigure');
 	}
 }
