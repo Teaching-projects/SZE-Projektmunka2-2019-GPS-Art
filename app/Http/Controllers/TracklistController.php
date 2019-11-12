@@ -23,7 +23,9 @@ class TracklistController extends Controller
 
     function deleteTrack(Request $request){
         $filetoDelete = $request->get('track');
-        unlink(storage_path('app/'.$filetoDelete['id'].'_'.$filetoDelete['name'].'/'.$filetoDelete['track_file_name']));
+        $dollarpath = 'app/'.$filetoDelete['id'].'_'.$filetoDelete['name'].'/'.$filetoDelete['track_file_name'];
+        if (file_exists(storage_path($dollarpath))) unlink(storage_path($dollarpath));
+        if (file_exists(storage_path(substr_replace($dollarpath, '.png', -4)))) unlink(storage_path(substr_replace($dollarpath, '.png', -4)));
         DB::table('tracks')->where('trackid', '=', $filetoDelete['trackid'])->delete();
         return redirect()->route('tracklist', ['user' => ['id' => Auth::user()->id]]);
     }
