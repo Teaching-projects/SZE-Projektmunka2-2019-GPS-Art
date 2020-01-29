@@ -5,6 +5,8 @@
 @section('size', '100%')
 
 @section('content')
+<main class="mdl-layout__content" style="padding-top:80px">
+<div class="jumbotron" style="padding-top:10px;">
 <table >
   <thead>
     <tr>
@@ -45,5 +47,6 @@
    @endforeach
   </tbody>
 </table>
-
+</div>
+</main>
 @endsection

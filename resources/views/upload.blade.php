@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="./css/style.css">
 
+<main class="mdl-layout__content" style="padding-top:80px">
 
 <div class="jumbotron" style="padding-top:100px;">
   <h1 class="display-4">Track fájl feltöltése</h1>
@@ -32,5 +33,5 @@
   </form>
   </div>
   </div>
-
+</main>
 @endsection

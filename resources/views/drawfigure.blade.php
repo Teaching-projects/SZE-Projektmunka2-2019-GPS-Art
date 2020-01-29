@@ -158,7 +158,7 @@ function download_image(){
  <link rel="stylesheet" href="./css/style.css">
 
 <body onload="init()">
-<main class="mdl-layout__content" style="padding-top:40px">
+<main class="mdl-layout__content" style="padding-top:80px">
     <div class="page-content"><!-- Your content goes here -->
 
     
