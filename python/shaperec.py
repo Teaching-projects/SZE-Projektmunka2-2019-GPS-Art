@@ -6,13 +6,17 @@ import sys
 shape='n/a'
 
 imgPath="C:\\xampp\\htdocs\\projektmunka\\python\\haromszog.png"
-img = cv2.imread(imgPath)
-kernel=np.ones((1,1),np.uint8)
-img=cv2.erode(img,kernel,iterations=1)
-img= cv2.bitwise_not(img)
-imgGrey = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-_, thresh = cv2.threshold(imgGrey, 240, 255, cv2.THRESH_BINARY)
-contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+img = cv2.imread(imgPath, -1)
+alpha = img[:,:,3]
+img = ~alpha
+
+
+thresh = 100
+ret,thresh_img = cv2.threshold(img, thresh, 255, cv2.THRESH_BINARY)
+contours, hierarchy = cv2.findContours(thresh_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+img_contours = np.zeros(img.shape)
+img=cv2.drawContours(img_contours, contours, -1, (0,255,0), 3)
 
 for contour in contours:
     approx = cv2.approxPolyDP(contour, 0.01* cv2.arcLength(contour, True), True)
