@@ -18,20 +18,20 @@
 </div>
        
 <div class="topnav " style="font-size:13px;">
-  <a href="http://adampapp.ddns.net/projektmunka/successlogin">Kezdőoldal</a>
-  <a href="http://adampapp.ddns.net/projektmunka/drawfigure">Futófigura rajzolása</a>
-  <a href="http://adampapp.ddns.net/projektmunka/uploadtrack">Track fájl feltöltése</a>
-  <a href="http://adampapp.ddns.net/projektmunka/synctrack">Track fájl szinkronizálása (Strava)</a>
+  <a href="{{ route('successlogin') }}">Kezdőoldal</a>
+  <a href="{{ route('drawfigure') }}">Futófigura rajzolása</a>
+  <a href="{{ route('uploadtrack') }}">Track fájl feltöltése</a>
+  <a href="{{ route('synctrack') }}">Track fájl szinkronizálása (Strava)</a>
 @if(isset(Auth::user()->email) && Auth::user()->superuser)
-  <a href="http://adampapp.ddns.net/projektmunka/figurelist">Leadott futófigurák kezelése</a>
-  <a href="http://adampapp.ddns.net/projektmunka/competitionlist">Kiírt versenyek kezelése</a>
+  <a href="{{ route('drawinglist') }}">Leadott futófigurák kezelése</a>
+  <a href="{{ route('competitionlist') }}">Kiírt versenyek kezelése</a>
 @endif
 @if(isset(Auth::user()->email))
-   <a href="http://adampapp.ddns.net/projektmunka/my">Adataim</a>
+   <a href="{{ route('my') }}">Adataim</a>
    <a href="{{ route('tracklist', ['user' => ['id' => Auth::user()->id]]) }}">Trackjeim</a>
 @endif
 @if(isset(Auth::user()->email) && Auth::user()->superuser)
-  <a href="http://adampapp.ddns.net/projektmunka/userlist">Felhasználók kezelése</a>
+  <a href="{{ route('userlist', ['user' => ['id' => Auth::user()->id]]) }}">Felhasználók kezelése</a>
 @endif
   <a href="{{ url('/logout') }}" style="float:right;"> Kijelentkezés </a>
 </div>
@@ -62,7 +62,7 @@
 
   </div>
 
-<a href="/projektmunka/successlogin"><button type="submit" style="display:table;margin:0 auto">Vissza</button></a>
+<a href="{{ route('successlogin', ['user' => ['id' => Auth::user()->id]]) }}"><button type="submit" style="display:table;margin:0 auto">Vissza</button></a>
 @else
     <script>window.location = "/projektmunka";</script>
 @endif
