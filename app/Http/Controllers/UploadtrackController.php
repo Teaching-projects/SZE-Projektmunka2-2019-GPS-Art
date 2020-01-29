@@ -20,8 +20,10 @@ class UploadtrackController extends Controller
 		$filename_gpx = Auth::user()->id . '_' . $request->get('name') .'_' .  $date . '.gpx';
 		$filename_png = Auth::user()->id . '_' . $request->get('name') .'_' .  $date . '.png';
 		$request->file('track')->storeAs(Auth::user()->id.'_'.Auth::user()->name, $filename_gpx);
-		$fullpath = storage_path('\\app\\' . Auth::user()->id.'_'.Auth::user()->name . '\\');
-		shell_exec('python ' . base_path() . '\\python\tracktopng.py "' . "{$fullpath}{$filename_gpx}" . '" "' . "{$fullpath}{$filename_png}" . '"');
+		$fullpath = storage_path('app/' . Auth::user()->id.'_'.Auth::user()->name . '/');
+		$asdasd = 'python3 ' . base_path() . '/python/tracktopng.py "' . "{$fullpath}{$filename_gpx}" . '" "' . "{$fullpath}{$filename_png}" . '"';
+		var_dump($asdasd);
+		shell_exec('python ' . base_path() . '/python/tracktopng.py "' . "{$fullpath}{$filename_gpx}" . '" "' . "{$fullpath}{$filename_png}" . '"');
 		DB::table('tracks')->insert([
 						'id' => Auth::user()->id,
 						'trackname' => $request->post('name'),
