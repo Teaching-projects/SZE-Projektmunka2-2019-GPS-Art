@@ -48,6 +48,7 @@ Route::get('/viewtrack', ['as' => 'viewtrack', 'uses' => 'TracklistController@vi
 Route::get('/renametrack', ['as' => 'renametrack', 'uses' => 'TracklistController@showRenameTrack']);
 Route::post('/renametrack', ['as' => 'renametrack', 'uses' => 'TracklistController@renameTrack']);
 Route::get('/exchange_token', ['as' => 'exchangetoken', 'uses' => 'StravaController@exchangeToken']);
+Route::get('/uploadstrava', ['as' => 'uploadstrava', 'uses' => 'StravaController@uploadTrack']);
 
 Route::get('/synctrack', ['as' => 'synctrack', 'uses' => 'StravaController@index'] );
 Route::get('/figuretrack', ['as' => 'figuretrack', 'uses' => 'DatabaseController@szabikatmegjelenit']);

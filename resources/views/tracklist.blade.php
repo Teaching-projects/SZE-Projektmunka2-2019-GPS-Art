@@ -5,6 +5,9 @@
 @section('size', '100%')
 
 @section('content')
+<a href="https://www.strava.com/oauth/authorize?client_id=43078&response_type=code&redirect_uri=http://localhost/projektmunka/exchange_token&approval_prompt=force&scope=read_all,activity:read_all,activity:write">
+    <button type="submit" style="display:table;margin:0 auto">Megbaszódás 2000</button>
+</a>
 <table >
   <thead>
     <tr>
@@ -39,6 +42,8 @@
         @endif
 
         <td style="width:50px"><a href="{{ route('viewtrack', ['track' => $t]) }}"><button type="submit" style="width:100%; font-size:15px;" >Megtekint</button></a></td>
+
+        <td style="width:50px"><a href="{{ route('uploadstrava', ['track' => $t]) }}"><button type="submit" style="width:100%; font-size:15px;" >Strava feltöltés</button></a></td>
 
         <td style="width:50px"><a href=""><button type="submit" style="width:100%; font-size:15px;"  >Versenyhez rendel</button></a></td>
       </tr>
