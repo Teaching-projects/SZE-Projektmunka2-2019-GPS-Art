@@ -18,18 +18,24 @@ class ShowDifference extends Controller
 		}
 		else{
 			$drawings = DB::table('drawings')->leftJoin('users', 'users.id', '=', 'drawings.id')->get();
+			$tomb=array();
+			$i = 0;
 			foreach ($drawings as $value){
-				echo $value->shape ;
+				$tomb[$i]=$value->similarity;
+				$i++;
 			}
-			$output = shell_exec('python ' . base_path() . '/python/shaperec.py kor.png');
-			var_dump($output);
-			$ot="lofazud ";
-			$classname = str_replace(' ', '', $output);
-			$classname2=preg_replace('/\s+/u', '',$output);
-			var_dump($classname2);
+			$j=0;
+			$minim=min($tomb);
+			$bestName="";
+			foreach ($drawings as $value){
+				if(($value->similarity)==$minim){				
+				$bestName=$value->drawingname;
+				}
+				$j++;
+			}
 
 		}
-		return view('showdifference', ['drawings' => $drawings]);
+		return view('showdifference', ['drawings' => $drawings, 'best'=>$bestName]);
 	}
 
 }
