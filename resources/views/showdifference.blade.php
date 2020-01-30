@@ -10,7 +10,7 @@
   <h1 class="display-4">Leadott figurák hasonlítása</h1>
   <p class="lead">Megnézheted, hogy a saját figuráid milyen mértékben egyeznek a többivel.</p>
   <hr class="my-4">
-<h3 style="background-color:#a6a7a9;color:white;padding:10px">A rajz, ami a legjobban hasonlít egy alakzatra: {{$best}}</h3>
+<h3 style="background-color:#a6a7a9;color:white;padding:10px">A rajz, ami a legjobban hasonlít egy alakzatra: {{$best}}  <br>Készítette:{{$bestOwner}}</h3>
 <table >
   <thead>
     <tr>
@@ -18,8 +18,6 @@
       <th scope="col">Figura megnevezése</th>
       <th scope="col">Feltöltve</th>
       <th scope="col">Eltérési érték</th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>

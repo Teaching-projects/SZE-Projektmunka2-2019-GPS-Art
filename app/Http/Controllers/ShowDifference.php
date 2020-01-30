@@ -27,15 +27,17 @@ class ShowDifference extends Controller
 			$j=0;
 			$minim=min($tomb);
 			$bestName="";
+			$bestOwner="";
 			foreach ($drawings as $value){
 				if(($value->similarity)==$minim){				
 				$bestName=$value->drawingname;
+				$bestOwner=$value->name;
 				}
 				$j++;
 			}
 
 		}
-		return view('showdifference', ['drawings' => $drawings, 'best'=>$bestName]);
+		return view('showdifference', ['drawings' => $drawings, 'best'=>$bestName, 'bestOwner'=>$bestOwner]);
 	}
 
 }

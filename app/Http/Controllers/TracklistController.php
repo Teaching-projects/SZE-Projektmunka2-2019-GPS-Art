@@ -23,14 +23,17 @@ class TracklistController extends Controller
 
     function deleteTrack(Request $request){
         $filetoDelete = $request->get('track');
-        unlink(storage_path('app/'.$filetoDelete['id'].'_'.$filetoDelete['name'].'/'.$filetoDelete['track_file_name']));
-        DB::table('tracks')->where('trackid', '=', $filetoDelete['trackid'])->delete();
+        //unlink(storage_path('app/'.$filetoDelete['id'].'/'.$filetoDelete['track_file_name']));
+        $dollarpath = 'app/'.$filetoDelete['id'].'/'.$filetoDelete['track_file_name'];
+        if (file_exists(storage_path($dollarpath))) unlink(storage_path($dollarpath));
+        if (file_exists(storage_path(substr_replace($dollarpath, '.png', -4)))) unlink(storage_path(substr_replace($dollarpath, '.png', -4)));
+	DB::table('tracks')->where('trackid', '=', $filetoDelete['trackid'])->delete();
         return redirect()->route('tracklist', ['user' => ['id' => Auth::user()->id]]);
     }
 
     function viewTrack(Request $request){
         $filetoView = $request->get('track');
-        $content = File::get(storage_path('app/'.$filetoView['id'].'_'.$filetoView['name'].'/'.$filetoView['track_file_name']));
+        $content = File::get(storage_path('app/'.$filetoView['id'].'/'.$filetoView['track_file_name']));
         return view('viewtrack', ['track' => $content, 'trackname' => $filetoView['trackname']]);
     }
 
