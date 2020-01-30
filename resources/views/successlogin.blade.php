@@ -24,8 +24,8 @@
 <div ng-controller="AppController">
           <div class="card-deck">
             <div ng-repeat="card in cards" class="card" >        
-               <div class="card-body"><h4 class="card-title">@{{card.Name}}</h4>
-                      <p class="card-text">@{{card.Description}}</p>
+               <div class="card-body"><h5 class="card-title">@{{card.Name}}</h5>
+                      <p style="font-size:15px;" class="card-text">@{{card.Description}}</p>
                     </div>
                       </div>
     
@@ -37,8 +37,8 @@
 <div ng-controller="AdminController">
           <div class="card-deck">
             <div ng-repeat="card in oldcards" class="card" >        
-               <div class="card-body"><h4 class="card-title">@{{card.Name}}</h4>
-                      <p class="card-text">@{{card.Description}}</p>
+               <div class="card-body"><h5 class="card-title">@{{card.Name}}</h5>
+                      <p style="font-size:15px;" class="card-text">@{{card.Description}}</p>
                     </div>
                       </div>
     
