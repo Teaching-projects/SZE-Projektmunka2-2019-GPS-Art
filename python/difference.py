@@ -2,10 +2,10 @@ import numpy as np
 import cv2
 import sys
 
-img1= cv2.imread("C:\\xampp\\htdocs\\projektmunka\\python\\53szog.png", cv2.IMREAD_UNCHANGED)
-img2 = cv2.imread("C:\\xampp\\htdocs\\projektmunka\\python\\real.png", cv2.IMREAD_UNCHANGED)
-#img1= cv2.imread(sys.argv[1], cv2.IMREAD_UNCHANGED)
-#img2 = cv2.imread(sys.argv[2], cv2.IMREAD_UNCHANGED)
+#img1= cv2.imread("C:\\xampp\\htdocs\\projektmunka\\python\\53szog.png", cv2.IMREAD_UNCHANGED)
+#img2 = cv2.imread("C:\\xampp\\htdocs\\projektmunka\\python\\real.png", cv2.IMREAD_UNCHANGED)
+img1= cv2.imread(sys.argv[1], cv2.IMREAD_UNCHANGED)
+img2 = cv2.imread(sys.argv[2], cv2.IMREAD_UNCHANGED)
 
 alpha_channel = img1[:, :, 3]
 _, mask = cv2.threshold(alpha_channel, 254, 255, cv2.THRESH_BINARY)  # binarize mask
