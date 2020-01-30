@@ -16,10 +16,9 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Figura megnevezése</th>
-      <th scope="col">Feltöltött kép</th>
       <th scope="col">Feltöltve</th>
       <th scope="col">Eredeti</th>
-      <th scope="col">Hasonlósági érték</th>
+      <th scope="col">Eltérési érték</th>
       <th></th>
       <th></th>
       <th></th>
@@ -31,17 +30,14 @@
       <tr>
         <td style="font-size:15px">{{ $d->drawingid }}</td>
         <td style="font-size:15px">{{ $d->drawingname }}</td>
-        <td style="font-size:15px">{{ $d->drawing_file_name }}</td>
         <td style="font-size:15px">{{ $d->drawing_created_at }}</td>
-       
-        <td style="font-size:15px"><img src="{{ $d->drawing_file_name }}"></td>
-        <td style="font-size:15px">*%</td>
-        <td>{{$output}}</td>
+       <td style="font-size:15px">A rajz ennyiben tér el egy azonos, szabályos alakzattól: {{ $d->similarity }}</td>
+        <td style="font-size:15px"><img src={{ $d->drawing_file_name }}></td>
+        <td style="font-size:15px">Detektalt alakzat: {{ $d->shape }}</td>
       </tr>
    @endforeach
   </tbody>
 </table>
 </div>
-<button onclick="szar()">nagylofasz</button>
 @endsection
 </main>
