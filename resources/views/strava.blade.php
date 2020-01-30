@@ -5,6 +5,7 @@
 @section('size', '100%')
 
 @section('content')
+@if($data['hasToken'])
 <table >
   <thead>
     <tr>
@@ -45,5 +46,10 @@
    @endforeach
   </tbody>
 </table>
+@else
+<a href="https://www.strava.com/oauth/authorize?client_id=43078&response_type=code&redirect_uri=http://localhost/projektmunka/exchange_token&approval_prompt=force&scope=read_all,activity:read_all">
+    <button type="submit" style="display:table;margin:0 auto">Megbaszódás 2000</button>
+</a>
+@endif
 
 @endsection

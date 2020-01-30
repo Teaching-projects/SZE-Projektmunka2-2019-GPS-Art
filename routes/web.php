@@ -47,8 +47,9 @@ Route::get('/deletetrack', ['as' => 'deletetrack', 'uses' => 'TracklistControlle
 Route::get('/viewtrack', ['as' => 'viewtrack', 'uses' => 'TracklistController@viewTrack']);
 Route::get('/renametrack', ['as' => 'renametrack', 'uses' => 'TracklistController@showRenameTrack']);
 Route::post('/renametrack', ['as' => 'renametrack', 'uses' => 'TracklistController@renameTrack']);
+Route::get('/exchange_token', ['as' => 'exchangetoken', 'uses' => 'StravaController@exchangeToken']);
 
-Route::get('/synctrack', ['as' => 'synctrack', 'uses' => 'DatabaseController@szabitbiral'] );
+Route::get('/synctrack', ['as' => 'synctrack', 'uses' => 'StravaController@index'] );
 Route::get('/figuretrack', ['as' => 'figuretrack', 'uses' => 'DatabaseController@szabikatmegjelenit']);
 Route::get('/competitionlist', ['as' => 'competitionlist', 'uses' => 'DatabaseController@szabikatmegjelenit']);
 
