@@ -5,11 +5,14 @@ import sys
 
 shape='n/a'
 
-imgPath="C:\\xampp\\htdocs\\projektmunka\\python\\haromszog.png"
+#imgPath="C:\\xampp\\htdocs\\projektmunka\\python\\haromszog.png"
+imgPath=sys.argv[1]
 img = cv2.imread(imgPath, -1)
 alpha = img[:,:,3]
 img = ~alpha
 
+kernel=np.ones((1,1),np.uint8)
+img=cv2.erode(img,kernel,iterations=1)
 
 thresh = 100
 ret,thresh_img = cv2.threshold(img, thresh, 255, cv2.THRESH_BINARY)
