@@ -6,7 +6,7 @@
 
 @section('content')
 <a href="https://www.strava.com/oauth/authorize?client_id=43078&response_type=code&redirect_uri=http://localhost/projektmunka/exchange_token&approval_prompt=force&scope=read_all,activity:read_all,activity:write">
-    <button type="submit" style="display:table;margin:0 auto">Megbaszódás 2000</button>
+    <button type="submit" style="display:table;margin:0 auto">Strava login</button>
 </a>
 <table >
   <thead>
