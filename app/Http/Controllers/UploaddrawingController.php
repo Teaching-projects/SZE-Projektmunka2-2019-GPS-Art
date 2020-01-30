@@ -17,9 +17,17 @@ class UploaddrawingController extends Controller
 		if($request->file('rajz')->getClientOriginalExtension() != "png") return back()->with('error', 'Helytelen formátum!');
 		$ownname=$request->post('name');
 		$date = date('Y.m.d-H:i:s');
-		$filename = Auth::user()->id . '_' . $request->get('name') .'_' .  date('Y.m.d-H:i:s') . '.png';
-		$request->file('rajz')->storeAs(Auth::user()->id.'_'.Auth::user()->name, $filename);
-		self::addToDB($filename, $ownname);
+		$filename = Auth::user()->id . '_' . $request->get('name') . '.png';
+		$request->file('rajz')->storeAs(Auth::user()->id, $filename);
+		$fname=base_path() .'/storage/app/'.Auth::user()->id .'/'. $filename;
+		$out='python3 ' . base_path() . '/python/shaperec.py ' .$fname;
+		$output = shell_exec('python3 ' . base_path() . '/python/shaperec.py '.$fname);
+		if($output==NULL) $output="n/a";
+		$out2=preg_replace('/\s+/u', '',$output);
+		$whichShape=base_path() .'/python'.'/' .$out2. '.png';
+		$output2 = shell_exec('python3 ' . base_path() . '/python/difference.py ' .$fname .' ' .$whichShape);
+		$filenamenew='storage/app/'.Auth::user()->id .'/'. $filename;
+		self::addToDB($filenamenew, $ownname,$output,$output2);
 		return view('drawfigure');
 	}
 
